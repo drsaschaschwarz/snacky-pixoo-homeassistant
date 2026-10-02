@@ -75,6 +75,26 @@ restart:
     entity:
       domain: sensor
       integration: divoom_pixoo
+render_preview:
+  name: Render Pixoo preview
+  description: Render a physical playlist page as a PNG without sending it to the Divoom Pixoo.
+  target:
+    entity:
+      domain: sensor
+      integration: divoom_pixoo
+  fields:
+    page_number:
+      name: Page number
+      description: Physical page number in the current Pixoo playlist.
+      required: true
+      example: 16
+      selector:
+        number:
+          min: 1
+          max: 999
+          step: 1
+          mode: box
+
 update_page:
   name: Update and send the current page to Divoom Pixoo
   description: Re-renders and re-sends the current configured page to the Divoom Pixoo. *Warning, spamming this a ton 'could' cause the device to crash.*
